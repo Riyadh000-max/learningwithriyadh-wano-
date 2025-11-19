@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wano English Game</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ruslan+Display&family=Shojumaru&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        wano: {
+                            pink: '#FFC0CB',
+                            red: '#800000',
+                            black: '#1a1a1a',
+                            gold: '#FFD700',
+                            paper: '#f4e4bc', // Parchment color
+                        },
+                    },
+                    fontFamily: {
+                        'shojumaru': ['"Shojumaru"', 'cursive'],
+                        'ruslan': ['"Ruslan Display"', 'serif'],
+                    },
+                    backgroundImage: {
+                        'wano-pattern': "url('data:image/svg+xml,%3Csvg width=\\'20\\' height=\\'20\\' viewBox=\\'0 0 20 20\\' xmlns=\\'http://www.w3.org/2000/svg\\'%3E%3Cg fill=\\'%239C92AC\\' fill-opacity=\\'0.1\\' fill-rule=\\'evenodd\\'%3E%3Ccircle cx=\\'3\\' cy=\\'3\\' r=\\'3\\'/%3E%3Ccircle cx=\\'13\\' cy=\\'13\\' r=\\'3\\'/%3E%3C/g%3E%3C/svg%3E')",
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-wano-black text-white font-sans min-h-screen overflow-x-hidden relative">
+    <!-- Background Elements -->
+    <div id="bg-layer" class="fixed inset-0 z-0 pointer-events-none opacity-20 bg-wano-pattern"></div>
+
+    <!-- Game Container -->
+    <div id="app"
+        class="relative z-10 max-w-md mx-auto min-h-screen bg-wano-black/90 shadow-2xl border-x-2 border-wano-gold/30 flex flex-col">
+        <!-- Header / Bounty Display -->
+        <header
+            class="p-4 flex justify-between items-center bg-wano-red border-b-4 border-wano-gold shadow-lg sticky top-0 z-50">
+            <h1 class="text-2xl font-shojumaru text-wano-gold drop-shadow-md">Wano English</h1>
+            <div
+                class="flex items-center gap-2 bg-wano-paper px-3 py-1 rounded-sm border-2 border-wano-black transform rotate-1">
+                <span class="text-wano-black font-bold uppercase text-xs tracking-widest">Bounty</span>
+                <span id="score-display" class="text-wano-red font-ruslan text-xl">0</span>
+                <span class="text-wano-gold text-xs">฿</span>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <main id="game-content" class="flex-grow p-4 flex flex-col items-center justify-center">
+            <!-- Dynamic Content Loaded Here -->
+            <div class="text-center animate-pulse">
+                <p class="text-wano-pink font-shojumaru text-xl mb-4">Loading Wano...</p>
+                <div class="w-16 h-16 border-4 border-wano-gold border-t-transparent rounded-full animate-spin mx-auto">
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer / Controls -->
+        <footer class="p-4 bg-wano-black border-t border-wano-gold/20 text-center text-wano-pink/50 text-xs">
+            <p>Level A1/A2 English Training</p>
+        </footer>
+    </div>
+
+    <!-- Audio Elements -->
+    <audio id="sfx-correct" src=""></audio>
+    <audio id="sfx-wrong" src=""></audio>
+
+    <!-- Scripts Loaded Synchronously for file:// compatibility -->
+    <script src="sound.js"></script>
+    <script src="levels/level1.js"></script>
+    <script src="levels/level2.js"></script>
+    <script src="levels/level3.js"></script>
+    <script src="levels/level4.js"></script>
+    <script src="levels/level5.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
