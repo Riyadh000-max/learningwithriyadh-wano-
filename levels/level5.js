@@ -8,8 +8,8 @@
         questions: [
             // Affirmative
             { sentence: "He play football.", error: "play", correction: "plays" },
-            { sentence: "She plays tennis.", error: null, correction: null },
-            { sentence: "John plays guitar.", error: null, correction: null },
+            { sentence: "She play tennis.", error: "play", correction: "plays" },
+            { sentence: "John play guitar.", error: "play", correction: "plays" },
             { sentence: "She play piano.", error: "play", correction: "plays" },
             { sentence: "It play with the ball.", error: "play", correction: "plays" },
 
